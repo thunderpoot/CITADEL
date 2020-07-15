@@ -16,43 +16,43 @@
   160  choice$ = inkey$
   170  if choice$ <> "e" and choice$ <> "q" and choice$ <> "d" then goto 130
   180  print UPS$(CHOICE$) : print
-  190  if choice$ = "e" then goto 210
-  195  if choice$ = "d" then goto 1200
-  200  if choice$ = "q" then END
-  210  input "Plaincode: ", pc$
-  220  input "OTP Key: ", ec$
-  230  FOR I% = 1 TO LEN(pc$)
-  240  C$ = MID$(pc$, I%, 1)
-  250  D$ = MID$(ec$, I%, 1)
-  251  if C$ = " " and D$ <> " " then print "%formats do not match" : goto 130
-  252  if C$ = " " then goto 290
-  255  if D$ = "" then print "%key too short" : goto 130
-  260  num% = VAL(C$)-VAL(D$)
-  270  if num% < 0 then num% = num% + 10
-  280  nums$ = nums$ + str$(num%)
-  290  NEXT I%
-  300  CD$ = nums$ : gosub 330
-  320  end
-  330  rem Formats output
-  340  print "Output: " ;
-  350  for o = 1 to len(CD$)
-  360  print mid$(CD$,o,1) ;
-  370  if o mod 5 = 0 then print " " ;
-  380  next o
-  390  if 5-(len(CD$) mod 5) <> 5 then print string$(5-(len(CD$) mod 5),"9")
-  400  print
-  410  return
- 1200  input "Encrypted Code: ", pc$
- 1210  input "OTP Key: ", ec$
- 1220  FOR I% = 1 TO LEN(pc$)
- 1230  C$ = MID$(pc$, I%, 1)
- 1240  D$ = MID$(ec$, I%, 1)
- 1245  if C$ = " " and D$ <> " " then print "%formats do not match" : goto 130
- 1246  if C$ = " " then goto 1280
- 1247  if C$ = "" then print "%key too short" : goto 130
- 1250  num% = VAL(C$)+VAL(D$)
- 1260  if num% > 10 then num% = num% - 10
- 1265  nums$ = nums$ + str$(num%)
- 1270  rem  print num%;
- 1280  NEXT I%
- 1285  CD$ = nums$ : gosub 330
+  190  if choice$ = "e" then goto 220
+  200  if choice$ = "d" then goto 450
+  210  if choice$ = "q" then END
+  220  input "Plaincode: ", pc$
+  230  input "OTP Key: ", ec$
+  240  FOR I% = 1 TO LEN(pc$)
+  250  C$ = MID$(pc$, I%, 1)
+  260  D$ = MID$(ec$, I%, 1)
+  270  if C$ = " " and D$ <> " " then print "%formats do not match" : goto 130
+  280  if C$ = " " then goto 330
+  290  if D$ = "" then print "%key too short" : goto 130
+  300  num% = VAL(C$)-VAL(D$)
+  310  if num% < 0 then num% = num% + 10
+  320  nums$ = nums$ + str$(num%)
+  330  NEXT I%
+  340  CD$ = nums$ : gosub 360
+  350  end
+  360  rem Formats output
+  370  print "Output: " ;
+  380  for o = 1 to len(CD$)
+  390  print mid$(CD$,o,1) ;
+  400  if o mod 5 = 0 then print " " ;
+  410  next o
+  420  if 5-(len(CD$) mod 5) <> 5 then print string$(5-(len(CD$) mod 5),"9")
+  430  print
+  440  return
+  450  input "Encrypted Code: ", pc$
+  460  input "OTP Key: ", ec$
+  470  FOR I% = 1 TO LEN(pc$)
+  480  C$ = MID$(pc$, I%, 1)
+  490  D$ = MID$(ec$, I%, 1)
+  500  if C$ = " " and D$ <> " " then print "%formats do not match" : goto 130
+  510  if C$ = " " then goto 570
+  520  if C$ = "" then print "%key too short" : goto 130
+  530  num% = VAL(C$)+VAL(D$)
+  540  if num% > 10 then num% = num% - 10
+  550  nums$ = nums$ + str$(num%)
+  560  rem  print num%;
+  570  NEXT I%
+  580  CD$ = nums$ : gosub 360
