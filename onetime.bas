@@ -10,22 +10,29 @@
   100  print "     *         *** (c) Copryright by DRTAC7 ***        *"
   110  print "     *                                                 *"
   120  print "     *             onetime ? for usage help            *"
-  125  print "     *                                                 *"
-  130  print "     ***************************************************"
-  140  print " "
-  150  if argv$(1) <> "" then goto 190
-  160  print "Continue? (y/N)" ; 
-  170  choice$ = INKEY$
-  180  if choice$ <> "y" then end
-  190  thismany = val(argv$(1))
-  200  if thismany = 0 then thismany = 1
-  210  n = 1
-  220  FOR x = 1 to thismany
-  225  print " " :  print " "
-  230  print "["n"]"
-  240  print " "
-  250  for k = 1 to 11 : for y = 1 to 5 : for i = 1 to 5 : print str$(nint(rnd(9))) ; : next i : print " " ; : next y : print : print : next k
-  260  n = n + 1
-  270  sleep 0
-  280  NEXT x
-  290  END
+  130  print "     *                                                 *"
+  140  print "     ***************************************************"
+  150  print " "
+  160  if argv$(1) <> "" then goto 230
+  170  print "Continue? (y/N)" ;
+  180  choice$ = INKEY$
+  190  if choice$ <> "y" then end
+  195  print choice$
+  200  print
+  210  print "Formatted? (y/N)" ; : choice$ = inkey$
+  215  print choice$
+  220  if choice$ = "y" then formatted = 1
+  230  thismany = val(argv$(1))
+  240  if thismany = 0 then thismany = 1
+  250  n = 1
+  260  FOR x = 1 to thismany
+  270  print " " :  print " "
+  280  if ARGV$(1) <> "" then print "["n"]"
+  290  print " "
+  300  if formatted = 1 then for k = 1 to 11 : for y = 1 to 5 : for i = 1 to 5 : print str$(nint(rnd(9))) ; : next i : print " " ; : next y : print : print : next k
+  310  if formatted = 0 then for k = 1 to 11 : for y = 1 to 5 : for i = 1 to 5 : print str$(nint(rnd(9))) ; : next i : print " " ; : next y : next k
+  320  n = n + 1
+  330  sleep 0
+  340  print
+  350  NEXT x
+  360  END
