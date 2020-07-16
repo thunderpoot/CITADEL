@@ -51,7 +51,7 @@
   510  if C$ = " " then goto 570
   520  if C$ = "" then print "%key too short" : goto 130
   530  num% = VAL(C$)+VAL(D$)
-  540  if num% > 10 then num% = num% - 10
+  540  if num% >= 10 then num% = num% - 10
   550  nums$ = nums$ + str$(num%)
   560  rem  print num%;
   570  NEXT I%
